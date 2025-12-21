@@ -52,8 +52,16 @@ uv run eda-cli report data/example.csv --out-dir reports
 - `missing_matrix.png` – визуализация пропусков;
 - `correlation_heatmap.png` – тепловая карта корреляций.
 
+Для запуска CLI использовать
+
+```bash
+uv run eda-cli report data/example.csv --out-dir reports_example --title "Анализ качества данных" --min-missing-share 0.8
+```
+![alt text](image.png)
+
 ## Тесты
 
 ```bash
 uv run pytest -q
 ```
+
