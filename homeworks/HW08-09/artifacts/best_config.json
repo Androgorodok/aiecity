@@ -1,0 +1,23 @@
+{
+  "dataset": "EMNIST balanced",
+  "seed": 42,
+  "input_dim": 784,
+  "hidden_dims": [
+    512,
+    256,
+    128
+  ],
+  "num_classes": 47,
+  "activation": "relu",
+  "dropout_rate": 0.0,
+  "use_batchnorm": false,
+  "optimizer": "adam",
+  "lr": 0.001,
+  "weight_decay": 0.0,
+  "early_stopping_patience": 5,
+  "epochs_trained": 10,
+  "best_val_accuracy": 0.8496813031161473,
+  "best_val_loss": 0.4875665448458269,
+  "test_accuracy": 0.01936295351473923,
+  "test_loss": 3.892865699975669
+}
