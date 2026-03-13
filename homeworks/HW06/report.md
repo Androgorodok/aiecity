@@ -7,30 +7,18 @@
 
 - Какой датасет выбран: `S06-hw-dataset-01.csv`
 - Размер: (12001, 30)
-- Целевая переменная: `target` (классы и их доли)
-- Признаки: что за типы (числовые / категориальные-подобные, если есть)
+- Целевая переменная: `target` принимает 0 и 1
+- Признаки: float64 все, кроме id и target, которые int64, категориальных признаков нет
 
 ## 2. Protocol
 
-- Разбиение: train/test (доли, `random_state`)
+- Разбиение: train/test (использовано стандартное разделение 80/20 с random_state=42 и stratify=y для сохранения распределения классов)
 - Подбор: CV на train (сколько фолдов, что оптимизировали)
 - Метрики: accuracy, F1, ROC-AUC (и почему эти метрики уместны именно здесь)
 
 ## 3. Models
 
-Опишите, какие модели сравнивали и какие гиперпараметры подбирали.
-
-Минимум:
-
-- DummyClassifier (baseline)
-- LogisticRegression (baseline из S05)
-- DecisionTreeClassifier (контроль сложности: `max_depth` + `min_samples_leaf` или `ccp_alpha`)
-- RandomForestClassifier
-- Один boosting (AdaBoost / GradientBoosting / HistGradientBoosting)
-
-Опционально:
-
-- StackingClassifier (с CV-логикой)
+В качестве бейзлайнов использовались DummyClassifier с стратегией most_frequent и LogisticRegression со StandardScaler в пайплайне. DecisionTreeClassifier исследовался с контролем сложности через комбинацию гиперпараметров max_depth, min_samples_split, min_samples_leaf и criterion. RandomForestClassifier настраивался по ключевым "лесным" параметрам: n_estimators, max_depth, min_samples_leaf и max_features. В качестве бустинговой модели был выбран GradientBoostingClassifier с подбором learning_rate, n_estimators, max_depth и min_samples_leaf. Все модели сравнивались по метрикам F1-score (macro), Accuracy и ROC-AUC с использованием корректной схемы кросс-валидации GridSearchCV на тренировочных данных
 
 ## 4. Results
 
