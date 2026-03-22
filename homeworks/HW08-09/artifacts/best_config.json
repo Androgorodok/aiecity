@@ -18,6 +18,6 @@
   "epochs_trained": 10,
   "best_val_accuracy": 0.8496813031161473,
   "best_val_loss": 0.4875665448458269,
-  "test_accuracy": 0.01936295351473923,
-  "test_loss": 3.892865699975669
+  "test_accuracy": 0.023419784580498867,
+  "test_loss": 3.872612757747676
 }

@@ -55,3 +55,7 @@ logs/
 *.tmp
 *.bak
 *.old
+
+
+# Созданные папки
+ homeworks/HW08-09/data/
