@@ -1,0 +1,1 @@
+{"experiment": "C4", "model": "resnet18-finetune", "epochs": 10, "seed": 42}

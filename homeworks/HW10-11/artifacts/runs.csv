@@ -1,0 +1,7 @@
+experiment_id,task,dataset,seed,model_summary,optimizer,lr,epochs_trained,best_val_accuracy,test_accuracy,precision,recall,mean_iou,notes
+C1,classification,STL10,42,simple-cnn-base,Adam,0.001,10,0.601,0.5786,,,,Base CNN without augmentations
+C2,classification,STL10,42,simple-cnn-aug,Adam,0.001,10,0.584,0.5757,,,,CNN with RandomRotation and Flip
+C3,classification,STL10,42,resnet18-head-only,Adam,0.001,10,0.793,0.7853,,,,Frozen backbone, trained only FC
+C4,classification,STL10,42,resnet18-finetune,Adam,0.0001,10,0.87,0.8648,,,,Partial fine-tune (layer4 + fc)
+V1,segmentation,OxfordIIITPet,42,DeepLabV3_ResNet50,,,0,,,0.6837,0.9801,0.6713,Base binary mask
+V2,segmentation,OxfordIIITPet,42,DeepLabV3_ResNet50,,,0,,,0.6870,0.9734,0.6705,Morphological closing (V2)
