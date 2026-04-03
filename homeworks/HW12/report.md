@@ -110,4 +110,4 @@
 - дополнительные `window_size`
 - дополнительные признаки
 - анализ остатков
-- дополнительные графики: `./artifacts/figures/residuals_best.png`, `./artifacts/figures/feature_examples.png`, `./artifacts/figures/error_by_time.png`
+- дополнительные графики: `./artifacts/figures/residuals_best.png`, `./artifacts/figures/error_by_time.png`
