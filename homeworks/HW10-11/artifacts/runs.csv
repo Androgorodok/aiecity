@@ -1,11 +1,7 @@
 experiment_id,task,dataset,seed,model_summary,optimizer,lr,epochs_trained,best_val_accuracy,test_accuracy,mean_iou,precision,recall,notes
-C1,classification,STL10,42.0,simple-cnn-base,Adam,0.001,10.0,0.575,0.5535,,,,
-C2,classification,STL10,42.0,simple-cnn-aug,Adam,0.001,10.0,0.549,0.532625,,,,
-C3,classification,STL10,42.0,resnet18-head-only,Adam,0.001,10.0,0.8,0.78275,,,,
-C4,classification,STL10,42.0,resnet18-finetune,Adam,0.0001,10.0,0.873,0.867875,,,,
-V1,segmentation,OxfordIIITPet,,,,,,,,0.6713167041540146,0.6836677968502045,0.9801498055458069,Base mask
-V2,segmentation,OxfordIIITPet,,,,,,,,0.6705285340547562,0.6870424836874008,0.9734014421701431,Morphological closing
-V1,segmentation,OxfordIIITPet,,,,,,,,0.6713167041540146,0.6836677968502045,0.9801498055458069,Base mask
-V2,segmentation,OxfordIIITPet,,,,,,,,0.6705285340547562,0.6870424836874008,0.9734014421701431,Morphological closing
-V1,segmentation,OxfordIIITPet,,,,,,,,0.6713167041540146,0.6836677968502045,0.9801498055458069,Base mask
-V2,segmentation,OxfordIIITPet,,,,,,,,0.6705285340547562,0.6870424836874008,0.9734014421701431,Morphological closing
+C1,classification,STL10,42,simple-cnn-base,Adam,0.001,10.0,0.575,,,,,
+C2,classification,STL10,42,simple-cnn-aug,Adam,0.001,10.0,0.549,,,,,
+C3,classification,STL10,42,resnet18-head-only,Adam,0.001,10.0,0.8,,,,,
+C4,classification,STL10,42,resnet18-finetune,Adam,0.0001,10.0,0.873,0.867875,,,,
+V1,segmentation,OxfordIIITPet,42,"DeepLabV3_ResNet50 pretrained, pet foreground with probs",,,,,,0.6713167041540146,0.6836677968502045,0.9801498055458068,Base mask
+V2,segmentation,OxfordIIITPet,42,"DeepLabV3_ResNet50 pretrained, pet foreground with probs",,,,,,0.6705285340547562,0.6870424836874008,0.9734014421701432,Morphological closing

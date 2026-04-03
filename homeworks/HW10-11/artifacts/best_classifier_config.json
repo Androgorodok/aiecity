@@ -1,1 +1,1 @@
-{"experiment": "C4", "model": "resnet18-finetune", "epochs": 10, "seed": 42}
+{"experiment_id": "C4", "model_name": "resnet18-finetune", "dataset": "STL10", "epochs": 10, "seed": 42, "input_size": [3, 96, 96], "num_classes": 10, "normalize_mean": [0.485, 0.456, 0.406], "normalize_std": [0.229, 0.224, 0.225], "augmentation": "aug"}

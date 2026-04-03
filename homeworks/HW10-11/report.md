@@ -51,18 +51,10 @@
 
 ## 5. Часть B: постановка задачи и режимы оценки (V1-V2)
 
-### Если выбран detection track
-
-- Модель:
-- V1: `score_threshold = 0.3`
-- V2: `score_threshold = 0.7`
-- Как считался IoU:
-- Как считались precision / recall:
-
 ### Если выбран segmentation track
 
 - Модель: DeepLabV3_ResNet50 (pretrained)
-- Что считается foreground: пиксели класса 1 (Object) и 3 (Outline)
+- Что считается foreground: пиксели питомца (класс 1 в trimap), pet_prob = softmax_prob[1] + softmax_prob[2]
 - V1: базовая постобработка
 - V2: альтернативная постобработка
 - Как считался mean IoU: попиксельное пересечение предсказания и маски, делённое на их объединение
@@ -78,9 +70,9 @@
 - Кривые лучшего прогона классификации: `./artifacts/figures/classification_curves_best.png`
 - Сравнение C1-C4: `./artifacts/figures/classification_compare.png`
 - Визуализация аугментаций: `./artifacts/figures/augmentations_preview.png`
-- Визуализации второй части: `./artifacts/figures/...`
+- Визуализации второй части: `./artifacts/figures/segmentation_examples`, `./artifacts/figures/segmentation_metrics`
 
-Короткая сводка (6-10 строк):
+Короткая сводка:
 
 - Лучший эксперимент части A: C4 (resnet18-finetune)
 - Лучшая `val_accuracy`: 0,873
