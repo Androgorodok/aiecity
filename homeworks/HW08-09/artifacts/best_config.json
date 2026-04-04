@@ -10,14 +10,14 @@
   "num_classes": 47,
   "activation": "relu",
   "dropout_rate": 0.0,
-  "use_batchnorm": false,
+  "use_batchnorm": true,
   "optimizer": "adam",
   "lr": 0.001,
   "weight_decay": 0.0,
   "early_stopping_patience": 5,
   "epochs_trained": 10,
-  "best_val_accuracy": 0.8496813031161473,
-  "best_val_loss": 0.4875665448458269,
+  "best_val_accuracy": 0.8554798158640227,
+  "best_val_loss": 0.4320326509962001,
   "test_accuracy": 0.023419784580498867,
-  "test_loss": 3.872612757747676
+  "test_loss": 3.872612085472159
 }
