@@ -2,7 +2,7 @@ experiment_id,dataset,seed,model_summary,optimizer,lr,momentum,weight_decay,epoc
 E1,EMNIST,42,"hidden=[512,256,128], act=relu, dropout=0.0, bn=False",Adam,0.001,0.0,0.0,10,0.6660764872521246,1.2135006574328155
 E2,EMNIST,42,"hidden=[512,256,128], act=relu, dropout=0.3, bn=False",Adam,0.001,0.0,0.0,10,0.634649433427762,1.3170038066572238
 E3,EMNIST,42,"hidden=[512,256,128], act=relu, dropout=0.0, bn=True",Adam,0.001,0.0,0.0,10,0.8577815155807366,0.43308010233022676
-E4,EMNIST,42,"hidden=[512,256,128], act=relu, dropout=0.0, bn=False, early_stop(pat=5)",Adam,0.001,0.0,0.0,10,0.8554798158640227,0.4320326509962001
+E4,EMNIST,42,"hidden=[512,256,128], act=relu, dropout=0.0, bn=True, early_stop(pat=5)",Adam,0.001,0.0,0.0,10,0.8554798158640227,0.4320326509962001
 O1,EMNIST,42,"hidden=[512,256,128], act=relu, dropout=0.0, bn=False",Adam,0.5,0.0,0.0,6,0.02191041076487252,4.01253669322719
 O2,EMNIST,42,"hidden=[512,256,128], act=relu, dropout=0.0, bn=False",Adam,1e-05,0.0,0.0,6,0.7048070113314447,1.2168593295235135
 O3,EMNIST,42,"hidden=[512,256,128], act=relu, dropout=0.0, bn=False",SGD,0.002,0.9,0.0001,12,0.8401203966005666,0.48692291527564396
