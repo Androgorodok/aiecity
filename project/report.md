@@ -60,7 +60,7 @@
 2. **Улучшенные модели и эксперименты:**
    - на базе ResNet18 проведено 7 экспериментов, сгруппированных по трём гипотезам: борьба с переобучением (усиленные аугментации, Label Smoothing, Weight Decay), работа с дисбалансом класса Gray_Leaf_Spot (Weighted Loss, Oversampling), стратегии fine-tune (двухфазный fine-tune, Discriminative Learning Rate);
    - важные гиперпараметры: Label Smoothing (0,1), Weight Decay (1e-4), learning rate (1e-4 для backbone, 1e-3 для головы), аугментации (RandomRotation, HorizontalFlip, VerticalFlip, ColorJitter, RandomAffine, GaussianBlur, RandomErasing);
-   - эксперименты показали, что ни одна из применённых техник не дала статистически значимого прироста над baseline (лучший результат — Label Smoothing с Test Acc 0.9785, что практически идентично baseline), двухфазный fine-tune оказался худшим (0.9523), что интерпретировано как недостаточное количество эпох для инициализации головы
+   - эксперименты показали, что Label Smoothing дала прирост, достигнув Test Accuracy 0,9785 и F1 macro 0,9715, поэтому выбрана она.
 
 3. **Нейросетевые модели (если применимо):**
    - использованные архитектуры: ResNet18, MobileNetV2, EfficientNet-B0 (предобученные на ImageNet) и простая свёрточная сеть Simple CNN (обучена с нуля);
