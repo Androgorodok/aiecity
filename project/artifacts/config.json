@@ -1,0 +1,9 @@
+{
+    "num_classes": 4,
+    "class_names": {
+        "0": "Blight",
+        "1": "Common_Rust",
+        "2": "Gray_Leaf_Spot",
+        "3": "Healthy"
+    }
+}

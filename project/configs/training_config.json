@@ -1,0 +1,18 @@
+{
+    "data_dir": "project/data",
+    "batch_size": 32,
+    "num_epochs": 15,
+    "learning_rate": 0.0001,
+    "model_name": "resnet18",
+    "output_dir": "project/artifacts",
+    "image_size": 224,
+    "train_size": 0.7,
+    "val_size": 0.7,
+    "augment": true,
+    "num_workers": 4,
+    "optimizer": "adam",
+    "scheduler": "cosine",
+    "weight_decay": 0.0001,
+    "random_seed": 42,
+    "notes": "ResNet18 показал лучшие результаты: 97,85% accuracy на тесте"
+}

@@ -1,0 +1,34 @@
+{
+  "train_size": 3350,
+  "val_size": 419,
+  "test_size": 419,
+  "num_classes": 4,
+  "classes": [
+    "Blight",
+    "Common_Rust",
+    "Gray_Leaf_Spot",
+    "Healthy"
+  ],
+  "class_distribution": {
+    "Blight": {
+      "train": 916,
+      "val": 115,
+      "test": 115
+    },
+    "Common_Rust": {
+      "train": 1044,
+      "val": 131,
+      "test": 131
+    },
+    "Gray_Leaf_Spot": {
+      "train": 460,
+      "val": 57,
+      "test": 57
+    },
+    "Healthy": {
+      "train": 930,
+      "val": 116,
+      "test": 116
+    }
+  }
+}
