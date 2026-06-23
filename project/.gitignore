@@ -125,5 +125,5 @@ logs/
 
 
 # Созданные папки
-data/data
+data/data/
 splits/*.csv
