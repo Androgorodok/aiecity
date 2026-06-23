@@ -81,7 +81,7 @@ def save_splits_to_csv(
         df = pd.DataFrame(data)
         csv_path = output_dir / f"{split}.csv"
         df.to_csv(csv_path, index=False)
-        print(f"✅ {split}.csv сохранён ({len(data)} записей)")
+        print(f"{split}.csv сохранён ({len(data)} записей)")
 
 
 def load_images_and_labels(

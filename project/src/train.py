@@ -28,7 +28,7 @@ logger = setup_logging("INFO")
 
 
 def load_config():
-    config_path = Path("config/train_config.yaml")
+    config_path = Path("configs/train_config.yaml")
 
     with open(
         config_path,

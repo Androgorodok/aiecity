@@ -19,48 +19,77 @@
 
 ## 2. Структура проекта
 
-Проект организован в следующей структуре:
+Проект до запуска проекта организована в следующей структуре:
 
+
+```text
 project/
-│
-├── artifacts/              # сохранённые модели и результаты обучения
-│   ├── best_model.pt
-│   └── config.json
-│
-├── config/
-│   └── train_config.yaml   # параметры обучения модели
-│
-├── data/          # небольшой демонстрационный набор данных
-│   └── README.md           # описание датасета
-│
+├── .gitignore
+├── pytest.ini
+├── README.md
+├── report.md
+├── requirements.txt
+├── self-checklist.md
+├── artifacts/
+│   ├── class_mapping.json
+│   ├── config.json
+|   ├── best_model.pt
+│   ├── README.md
+│   ├── figures/
+│   │   ├── augmentation_examples.png
+│   │   ├── augmentation_preview.png
+│   │   ├── class_distribution.png
+│   │   ├── data_split_distribution.png
+│   │   ├── experiments_comparison.png
+│   │   ├── image_size_analysis.png
+│   │   ├── models_comparison.png
+│   │   ├── sample_images_per_class.png
+│   │   └── val_acc_dynamics.png
+│   └── models/
+│       
+├── configs/
+│   ├── README.md
+│   ├── service_config.yaml
+│   ├── train_config.yaml
+│   └── training_config.json
+├── data/
+│   └── README.md
 ├── notebooks/
 │   ├── 01_eda.ipynb
-│   ├── 02_baseline_resnet18.ipynb
-│   ├── 03_final_model.ipynb
-│   └── 04_inference.ipynb
-│
+│   ├── 02_baselines.ipynb
+│   ├── 03_model_tuning.ipynb
+│   ├── 04_inference.ipynb
+│   └── README.md
 ├── scripts/
-│   └── download_dataset.py # скачивание датасета
-│
+│   ├── download_dataset.py
+│   └── README.md
 ├── splits/
-│   ├── train.csv
-│   ├── val.csv
-│   └── test.csv
-│
+│   ├── README.md
+│   └── split_statistics.json
 ├── src/
-│   ├── data/
-│   ├── models/
+│   ├── `__init__.py`
+│   ├── inference.py
+│   ├── README.md
 │   ├── service.py
 │   ├── train.py
-│   └── inference.py
-│
-├── tests/
-│
-├── requirements.txt
-├── report.md
-└── self-checklist.md
-
----
+│   ├── utils.py
+│   ├── data/
+│   │   ├── `__init__.py`
+│   │   ├── dataset.py
+│   │   └── loaders.py
+│   └── models/
+│       ├── `__init__.py`
+│       ├── architectures.py
+│       ├── losses.py
+│       ├── training.py
+│       └── utils.py
+└── tests/
+    ├── `__init__.py`
+    ├── conftest.py
+    ├── README.md
+    ├── test_model.py
+    └── test_optimizer.py
+```
 
 ## 3. Требования и установка
 
@@ -123,11 +152,11 @@ source .venv/bin/activate      # при необходимости
 python -m src.service          # пример: FastAPI/Flask сервис
 ```
 
-После запуска сервис доступен по адресу:
+После запуска сервис доступен по адресу, если его не поменяли в `configs/servive_config.yaml`:
 
 `http://localhost:8000`
 
-Swagger UI:
+Swagger UI, если его не поменяли в `configs/servive_config.yaml`:
 
 `http://localhost:8000/docs`
 
@@ -169,25 +198,13 @@ pytest tests
 
 ## 7. Демонстрация на защите
 
-Опишите, **как именно вы планируете показывать проект на защите**:
-
-- что вы запускаете (ноутбук, сервис, отдельный скрипт);
-- какие 1-2 ключевых сценария продемонстрируете;
-- какие метрики или результаты покажете (графики, таблицы, ответы сервиса).
-
-Пример:
-
-> На защите я:
->
-> 1. Кратко покажу структуру проекта (`notebooks/`, `src/`, `data/`).
-> 2. Запущу сервис через `python -m src.service`, покажу пару запросов через Swagger UI.
-> 3. Покажу ноутбук с основными экспериментами и сравнение моделей по метрике качества.
+На защите я планирую последовательно продемонстрировать все ключевые компоненты проекта. Сначала кратко покажу структуру проекта, чтобы преподаватель увидел логику организации кода, данных и артефактов. Затем запущу FastAPI-сервис через python -m src.service и открою Swagger UI, где наглядно покажу два эндпоинта: GET /health для проверки статуса и POST `/predict` с загрузкой реальных изображений из датасета — по одному из каждого из четырёх классов (Blight, Common_Rust, Gray_Leaf_Spot, Healthy) с демонстрацией возвращаемых вероятностей по всем классам и уверенности модели. После этого открою ноутбук с EDA `notebooks/01_eda.ipynb`, а также `notebooks/02_baselines.ipynb`, где покажу сравнение архитектур (Simple CNN, MobileNetV2, EfficientNet-B0, ResNet18) по метрикам Test Accuracy и F1 macro и таблицу с результатами экспериментов из `notebooks/03_experiments.ipynb` с пояснением, почему финальной моделью выбран ResNet18 с Label Smoothing, ещё открою `notebooks/04_inference.ipynb` для наглядности. В завершение продемонстрирую логи сервиса, где видно, что каждый запрос логируется с указанием предсказанного класса, уверенности и вероятностей по всем классам.
 
 ---
 
 ## 8. Ограничения и дальнейшая работа
 
-На защите я планирую последовательно продемонстрировать все ключевые компоненты проекта. Сначала кратко покажу структуру проекта, чтобы преподаватель увидел логику организации кода, данных и артефактов. Затем запущу FastAPI-сервис через python -m src.service и открою Swagger UI, где наглядно покажу два эндпоинта: GET /health для проверки статуса и POST `/predict` с загрузкой реальных изображений из датасета — по одному из каждого из четырёх классов (Blight, Common_Rust, Gray_Leaf_Spot, Healthy) с демонстрацией возвращаемых вероятностей по всем классам и уверенности модели. После этого открою ноутбук с EDA `notebooks/01_eda.ipynb`, а также `notebooks/02_baselines.ipynb`, где покажу сравнение архитектур (Simple CNN, MobileNetV2, EfficientNet-B0, ResNet18) по метрикам Test Accuracy и F1 macro и таблицу с результатами экспериментов из `notebooks/03_experiments.ipynb` с пояснением, почему финальной моделью выбран ResNet18 с Label Smoothing, ещё открою `notebooks/04_inference.ipynb` для наглядности. В завершение продемонстрирую логи сервиса, где видно, что каждый запрос логируется с указанием предсказанного класса, уверенности и вероятностей по всем классам.
+Ограничениями являются качество, скорость, объём данных и разнообразие датасета. Если бы было больше времени, можно было бы собрать датасет ещё и из других источников, объединив это всё в одно, а также реализовать чат-бот для совета по предотвращению или лечению болезней листьев кукурузы.
 
 ---
 

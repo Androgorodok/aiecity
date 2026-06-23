@@ -9,6 +9,8 @@ from torchvision import transforms
 from src.models import create_model
 
 import logging
+from pathlib import Path
+import yaml
 
 logging.basicConfig(
     level=logging.INFO,
@@ -16,6 +18,25 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+
+def load_service_config():
+    """Загружает конфигурацию сервиса из configs/service_config.yaml"""
+    config_path = Path("configs/service_config.yaml")
+    
+    if not config_path.exists():
+        logger.warning(f"Config file not found: {config_path}, using defaults")
+        return {
+            "host": "0.0.0.0",
+            "port": 8000,
+            "reload": True,
+            "title": "Corn Disease Classifier"
+        }
+    
+    with open(config_path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+
+SERVICE_CONFIG = load_service_config()
 
 app = FastAPI(
     title="Corn Disease Classifier"
@@ -128,7 +149,7 @@ if __name__ == "__main__":
 
     uvicorn.run(
         "src.service:app",
-        host="0.0.0.0",
-        port=8000,
-        reload=True,
+        host=SERVICE_CONFIG.get("host", "0.0.0.0"),
+        port=SERVICE_CONFIG.get("port", 8000),
+        reload=SERVICE_CONFIG.get("reload", True),
     )
